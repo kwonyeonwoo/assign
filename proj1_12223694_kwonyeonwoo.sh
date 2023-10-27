@@ -33,7 +33,7 @@ do
 		for var in $( seq 1 10 )
 		do
 			index=$(echo $mid | awk -v a=$var '{print $a}')
-			echo $index
+			echo -n $index" "
 			cat u.item | awk -F \| -v id=$index '$1==id {print $2}'
 		done
 		fi
