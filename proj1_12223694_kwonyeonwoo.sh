@@ -26,7 +26,8 @@ do
 		cat u.item | awk -F \| -v id=$mid '$1==id {print $0}'
 		;;
 	2)
-		echo "2" ;;
+		read -p "Do you want to get the data of 'action' genre movies from 'u.item'?(y/n):" decision
+		;;
 	3)
 		echo "3" ;;
 	4) 
