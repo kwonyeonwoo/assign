@@ -27,6 +27,16 @@ do
 		;;
 	2)
 		read -p "Do you want to get the data of 'action' genre movies from 'u.item'?(y/n):" decision
+		if [ "$decision" = "y" ]
+		then
+		mid=$(cat u.item | awk -F \| '$7=="1"{print $1}')
+		for var in $( seq 1 10 )
+		do
+			index=$(echo $mid | awk -v a=$var '{print $a}')
+			echo $index
+			cat u.item | awk -F \| -v id=$index '$1==id {print $2}'
+		done
+		fi
 		;;
 	3)
 		echo "3" ;;
