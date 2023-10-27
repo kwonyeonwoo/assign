@@ -18,9 +18,13 @@ Student Number: 12223694
 read -p "Enter your choice [ 1-9 ] " choice
 while [ $choice -ne 9 ]
 do
+	echo ""
 	case $choice in
 	1)
-		echo "1" ;;
+		read -p "Please enter 'movie id' (1~1682): " mid
+		echo ""
+		cat u.item | awk -F \| -v id=$mid '$1==id {print $0}'
+		;;
 	2)
 		echo "2" ;;
 	3)
@@ -36,6 +40,7 @@ do
 	8)
 		echo "8" ;;
 	esac
+echo ""
 read -p "Enter your choice [ 1-9 ] " choice
 done
 echo "Bye !"
